@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+    fe:
+        build: "FE/comments"
+        image: "luciferdev7796/fe"
+        ports:
+            - "4200:4200"
+
+    be:
+        build: "BE/comments"
+        image: "luciferdev7796/be"
+        ports:
+            - "3000:3000"
+        depends_on:
+            - "db"
+
+    db:
+        image: mongo
+        ports:
+            - "27017:27017"
+        volumes:
+            - "./DB:/data/db"

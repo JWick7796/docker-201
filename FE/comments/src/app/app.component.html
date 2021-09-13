@@ -1,0 +1,23 @@
+<div [formGroup]="myForm">
+  <h2>Add Comment</h2>
+  <label for="comemnt">Comment: </label>
+  <input formControlName="comment" type="text" />
+  <br />
+  <br />
+  <label for="userName">User Name: </label>
+  <input formControlName="userName" type="text" name="" />
+  <br />
+  <br />
+  <input type="button" (click)="submit()" value="Sumit" />
+</div>
+
+<br />
+<br />
+<hr />
+<div *ngFor="let comment of comments">
+  {{ comment.comment }}
+  <br />
+  -{{ comment.userName }}
+  <br />
+  <br />
+</div>
